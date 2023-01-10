@@ -1,0 +1,48 @@
+<mat-expansion-panel
+  class="fist-component-wrapper"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      First component
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <p>
+    <strong>NAME: </strong>
+    <span>{{ name }}</span>
+  </p>
+
+  <p>
+    <strong>DESCRIPTION: </strong>
+    <span>{{ description }}</span>
+  </p>
+
+  <p>
+    <strong>PRICE: </strong>
+    <span>{{ price }}</span>
+  </p>
+
+  <p>
+    <strong>CATEGORY: </strong>
+    <span>{{ category }}</span>
+  </p>
+
+  <p>
+    <strong>IsAVAILABLE: </strong>
+    <span>{{ isAvailable }}</span>
+  </p>
+
+  <div>
+    <strong>Available products: </strong>
+    <ul *ngFor="let product of products">
+      <li>{{ product }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <strong>Available countries: </strong>
+    <ul *ngFor="let country of shipmentCountries">
+      <li>{{ country }}</li>
+    </ul>
+  </div>
+</mat-expansion-panel>

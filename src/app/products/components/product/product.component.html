@@ -1,0 +1,61 @@
+<mat-card
+  class="product"
+>
+  <mat-card-header class="product-header">
+    <strong>{{ product.name }}</strong>
+  </mat-card-header>
+
+  <img
+    class="product-image"
+    mat-card-image
+    alt="backpack"
+    [src]="product.image"
+  >
+
+  <mat-card-content class="product-content">
+    <p>
+      <strong>Category: </strong>
+      <span>{{ product.category }}</span>
+    </p>
+
+    <p>
+      <strong>Price: </strong>
+      <span>{{ product.price }}$</span>
+    </p>
+
+    <p>
+      <strong>Availability: </strong>
+
+      <ng-container *ngIf="product.isAvailable; then checkCircleRef; else unCheckCircleRef"></ng-container>
+
+      <ng-template #checkCircleRef>
+        <mat-icon class="icon" fontIcon="check_circle"></mat-icon>
+      </ng-template>
+
+      <ng-template #unCheckCircleRef>
+        <mat-icon class="icon" fontIcon="not_interested"></mat-icon>
+      </ng-template>
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <ng-container *ngIf="mode === listMode.Product; then buyButtonRef; else removeButtonRef"></ng-container>
+
+    <ng-template #buyButtonRef>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!product.isAvailable"
+        (click)="onAddToCart()"
+      >Buy</button>
+    </ng-template>
+
+    <ng-template #removeButtonRef>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="onRemoveFromCart()"
+      >Remove</button>
+    </ng-template>
+  </mat-card-actions>
+</mat-card>

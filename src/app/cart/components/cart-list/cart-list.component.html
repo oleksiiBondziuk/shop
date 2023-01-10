@@ -1,0 +1,19 @@
+<div class="cart-list-wrapper">
+  <h2>Cart list: </h2>
+
+  <ng-container *ngIf="(cartList$ | async)?.length; then cartListRef; else noItemsRef"></ng-container>
+
+  <ng-template #cartListRef>
+    <ul *ngFor="let product of cartList$ | async; trackBy: trackByProduct" >
+      <li>
+        <app-product
+          [product]="product"
+          [mode]="cartListMod"
+          (removeFromCart)="onRemoveFromCart(product.id)"
+        ></app-product>
+      </li>
+    </ul>
+  </ng-template>
+
+  <ng-template #noItemsRef>No items in Cart</ng-template>
+</div>
