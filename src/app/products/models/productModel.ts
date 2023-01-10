@@ -8,3 +8,4 @@ export interface ProductModel {
   isAvailable: boolean;
   image: string;
 }
+// не используется верхний регистр в наименовании файлов
