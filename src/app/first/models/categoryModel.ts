@@ -3,3 +3,4 @@ export enum CategoryModel {
   Shoes = 'Shoes',
   Clothes = 'Clothes'
 }
+// не используйте верхний регистр в названии файлов
